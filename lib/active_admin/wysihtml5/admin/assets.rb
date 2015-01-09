@@ -4,7 +4,7 @@ ActiveAdmin.register Asset do
     link_to(image_tag(asset.storage.thumb("100x100#").url), admin_asset_path(asset))
   end
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs do
       f.input :storage, as: :dragonfly, input_html: { components: [:preview, :upload, :url, :remove ] }
     end
